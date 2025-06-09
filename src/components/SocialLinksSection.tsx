@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -107,7 +106,7 @@ const SocialLinksSection = () => {
                         href={link.url} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 text-conservative-green"
                       >
                         <ExternalLink size={14} />
                         Besøg
@@ -145,7 +144,7 @@ const SocialLinksSection = () => {
                       href={link.url} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm"
+                      className="flex items-center gap-2 text-sm text-conservative-green"
                     >
                       <link.icon size={16} />
                       {link.title}

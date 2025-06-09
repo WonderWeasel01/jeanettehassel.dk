@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart, Users, TrendingUp, MapPin } from 'lucide-react';
+import Jeanette from '../assets/Jeanette.jpg';
 
 const AboutSection = () => {
   const fadeInUp = {
@@ -12,26 +12,25 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-background z-20">
       <div className="container mx-auto px-4">
-        <motion.div 
-          {...fadeInUp}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Kandidat præsentation
-          </h2>
-          <div className="w-24 h-1 bg-conservative-green mx-auto mb-8"></div>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="space-y-6 text-lg leading-relaxed">
+            <div className="space-y-6 text-lg leading-relaxed flex flex-col items-center">
+              <motion.div 
+                {...fadeInUp}
+                className="mb-6 text-center"
+              >
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Kandidat præsentation
+                </h2>
+                <div className="w-24 h-1 bg-conservative-green mx-auto mb-8"></div>
+              </motion.div>
               <p>
                 Jeg er mor til to drenge og har boet i Jægerspris hele mit liv. Her kender jeg hver en sti og hvert et hjørne – og det er her, jeg føler mig hjemme. Det lokale fællesskab betyder meget for mig, og det har det altid gjort.
               </p>
@@ -53,7 +52,7 @@ const AboutSection = () => {
           >
             <div className="relative">
               <img 
-                src="/placeholder.svg" 
+                src={Jeanette} 
                 alt="Jeanette Hassel campaign" 
                 className="w-full rounded-lg shadow-2xl"
               />

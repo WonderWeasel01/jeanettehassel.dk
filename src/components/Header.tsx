@@ -17,9 +17,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-conservative-green rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">JH</span>
-            </div>
+ <img src="/Logo.png" alt="Jeanette Hassel" className="w-10 h-10" />
             <div>
               <h1 className="text-xl font-bold text-conservative-green">Jeanette Hassel</h1>
               <p className="text-sm text-muted-foreground">Vækst og Nærvær</p>

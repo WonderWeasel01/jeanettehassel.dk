@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Facebook, Linkedin, Mail, Phone } from 'lucide-react';
+import JeanetteHassel from '../assets/JeanetteHvidBG.jpg';
 
 const Footer = () => {
   return (
@@ -10,8 +10,8 @@ const Footer = () => {
           {/* Logo og beskrivelse */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                <span className="text-conservative-green font-bold text-lg">JH</span>
+              <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                <img src={JeanetteHassel} alt="Jeanette Hassel" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="text-xl font-bold">Jeanette Hassel</h3>
@@ -72,9 +72,6 @@ const Footer = () => {
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60">
             © 2024 Jeanette Hassel. Alle rettigheder forbeholdes.
-          </p>
-          <p className="text-white/60 mt-2">
-            Betalt af: Det Konservative Folkeparti, Frederikssund
           </p>
         </div>
       </div>
