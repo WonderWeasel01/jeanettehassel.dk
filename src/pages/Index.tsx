@@ -1,22 +1,31 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
 import PodcastSection from '../components/PodcastSection';
 import SocialLinksSection from '../components/SocialLinksSection';
-import QRCodeSection from '../components/QRCodeSection';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <HeroSection />
-      <AboutSection />
-      <PodcastSection />
-      <ContactSection />
+      <Header />
+      <div id="hero">
+        <HeroSection />
+      </div>
+      <div id="about">
+        <AboutSection />
+      </div>
+      <div id="podcast">
+        <PodcastSection />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
       <SocialLinksSection />
-      <QRCodeSection />
+      <Footer />
     </div>
   );
 };
