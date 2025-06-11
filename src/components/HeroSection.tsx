@@ -2,16 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
-import JeanetteHassel from '../assets/JeanetteBG.jpg';
+import JeanetteHassel from '../assets/JeanetteBG.png';
 
 const HeroSection = () => {
   return (
     <section className="relative h-screen flex overflow-hidden z-10">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <img src={JeanetteHassel} alt="Jeanette Hassel" className="w-full h-full object-cover" />
-        {/* Conservative Green Overlay */}
-        <div className="absolute inset-0 bg-conservative-green bg-opacity-30"></div>
+      {/* Background - Green on Mobile */}
+      <div className="absolute inset-0 z-0 bg-[#9ED196]">
+        {/* Image Background for larger screens */}
+        <img 
+          src={JeanetteHassel} 
+          alt="Jeanette Hassel" 
+          className="hidden xl:block w-full h-full object-cover" // Hide on mobile
+          style={{ objectPosition: 'right' }} // Align the image to the right
+        />
       </div>
 
       {/* Content */}
@@ -27,7 +31,7 @@ const HeroSection = () => {
               Jeanette Hassel
             </h1>
             <h2 className="text-3xl md:text-4xl font-light mb-6">
-              Din stemme på <span className="text-conservative-light-green font-semibold">Vækst og Nærvær</span>
+              Din stemme på <span className="text-[#00583C] font-semibold">Vækst og Nærvær</span>
             </h2>
             <p className="text-xl md:text-2xl mb-8">
               Byrådskandidat for Det Konservative Folkeparti
@@ -61,8 +65,8 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Right Column - Empty */}
-        <div className="flex-1"></div>
+        {/* Right Column - Hidden on Mobile */}
+        <div className="hidden xl:flex flex-1"></div> {/* Hidden on mobile */}
       </div>
 
       {/* Scroll Indicator */}
