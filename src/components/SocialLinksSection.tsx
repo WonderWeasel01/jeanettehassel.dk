@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Facebook, Linkedin, Users, ExternalLink } from 'lucide-react';
+import { Facebook, Linkedin, Users, ExternalLink, Instagram } from 'lucide-react';
 
 const SocialLinksSection = () => {
   const socialLinks = [
@@ -26,6 +26,13 @@ const SocialLinksSection = () => {
       url: "https://www.linkedin.com/in/jeanettehassel/",
       icon: Linkedin,
       type: "professional"
+    },
+    {
+      title: "Instagram",
+      description: "Følg mig på Instagram",
+      url: "https://www.instagram.com/jeanette_hassel_kv?igsh=ZnN4dmpoNGlwcDc4&utm_source=qr",
+      icon: Instagram,
+      type: "instagram"
     }
   ];
 
@@ -82,14 +89,15 @@ const SocialLinksSection = () => {
           <h3 className="text-2xl font-bold text-center mb-8 text-foreground">
             Følg Jeanette
           </h3>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full">
             {socialLinks.map((link, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
+                className="w-full"
               >
-                <Card className="h-full border-conservative-green/20 hover:border-conservative-green/40 transition-colors">
+                <Card className="w-full h-full border-conservative-green/20 hover:border-conservative-green/40 transition-colors">
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-conservative-light-green rounded-full flex items-center justify-center mx-auto mb-4">
                       <link.icon className="w-8 h-8 text-conservative-green" />

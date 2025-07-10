@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Linkedin, Mail, Phone } from 'lucide-react';
+import { Facebook, Linkedin, Mail, Phone, Instagram } from 'lucide-react';
 import JeanetteHassel from '../assets/JeanetteHvidBG.jpg';
 
 const Footer = () => {
@@ -64,6 +64,14 @@ const Footer = () => {
                 className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
               >
                 <Linkedin size={20} />
+              </a>
+              <a 
+                href="https://www.instagram.com/jeanette_hassel_kv?igsh=ZnN4dmpoNGlwcDc4&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+              >
+                <Instagram size={20} />
               </a>
             </div>
           </div>

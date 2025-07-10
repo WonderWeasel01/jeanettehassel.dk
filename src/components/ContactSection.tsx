@@ -98,10 +98,26 @@ const ContactSection = () => {
                   <div className="bg-muted/50 p-4 rounded-lg">
                     <h4 className="font-semibold text-foreground mb-2">Vælgerforeningsformand</h4>
                     <p className="text-muted-foreground">Henrik Biehl</p>
+                    <div className="flex items-center gap-3 mt-1">
+                      <Phone className="w-4 h-4 text-conservative-green" />
+                      <a href="tel:+4520259514" className="text-conservative-green hover:underline text-sm">20 25 95 14</a>
+                    </div>
+                    <div className="flex items-center gap-3 mt-1">
+                      <Mail className="w-4 h-4 text-conservative-green" />
+                      <a href="mailto:hb@hbrc.dk" className="text-conservative-green hover:underline text-sm">hb@hbrc.dk</a>
+                    </div>
                   </div>
                   <div className="bg-muted/50 p-4 rounded-lg">
                     <h4 className="font-semibold text-foreground mb-2">Kampagneleder</h4>
                     <p className="text-muted-foreground">Jens Otto Tram</p>
+                    <div className="flex items-center gap-3 mt-1">
+                      <Phone className="w-4 h-4 text-conservative-green" />
+                      <a href="tel:+4551517482" className="text-conservative-green hover:underline text-sm">51 51 74 82</a>
+                    </div>
+                    <div className="flex items-center gap-3 mt-1">
+                      <Mail className="w-4 h-4 text-conservative-green" />
+                      <a href="mailto:jot@executivepartner.dk" className="text-conservative-green hover:underline text-sm">jot@executivepartner.dk</a>
+                    </div>
                   </div>
                 </div>
                 <div className="mt-8 p-4 bg-conservative-light-green/20 rounded-lg">
