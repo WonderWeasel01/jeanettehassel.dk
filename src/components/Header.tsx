@@ -1,15 +1,26 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  // Navigér til forsiden og scroll til sektion
+  const handleNav = (sectionId: string) => {
     setIsMenuOpen(false);
+    if (location.pathname !== '/') {
+      // Navigér til forsiden med hash
+      navigate(`/#${sectionId}`);
+    } else {
+      // Scroll smooth hvis allerede på forsiden
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
   };
 
   return (
@@ -17,7 +28,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
- <img src="/Logo.png" alt="Jeanette Hassel" className="w-10 h-10" />
+            <img src="/Logo.png" alt="Jeanette Hassel" className="w-10 h-10" />
             <div>
               <h1 className="text-xl font-bold text-conservative-green">Jeanette Hassel</h1>
               <p className="text-sm text-muted-foreground">Vækst og Nærvær</p>
@@ -26,43 +37,17 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <button 
-              onClick={() => scrollToSection('hero')}
-              className="text-conservative-green hover:text-conservative-green/80 transition-colors"
-            >
-              Hjem
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className="text-conservative-green hover:text-conservative-green/80 transition-colors"
-            >
-              Om mig
-            </button>
-            <button 
-              onClick={() => scrollToSection('podcast')}
-              className="text-conservative-green hover:text-conservative-green/80 transition-colors"
-            >
-              Podcasts
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-conservative-green hover:text-conservative-green/80 transition-colors"
-            >
-              Kontakt
-            </button>
-            <Button 
-              className="bg-conservative-green hover:bg-conservative-green/90 text-white"
-              onClick={() => scrollToSection('contact')}
-            >
-              Støt min kampagne
-            </Button>
+            <button onClick={() => handleNav('hero')} className="text-conservative-green hover:text-conservative-green/80 transition-colors">Hjem</button>
+            <button onClick={() => handleNav('about')} className="text-conservative-green hover:text-conservative-green/80 transition-colors">Om mig</button>
+            <button onClick={() => navigate('/indblik')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Karriere-tidslinje</button>
+            <button onClick={() => handleNav('podcast')} 
+            className="text-conservative-green hover:text-conservative-green/80 transition-colors">Podcasts</button>
+            <button onClick={() => handleNav('contact')} className="text-conservative-green hover:text-conservative-green/80 transition-colors">Kontakt</button>
+            <Button className="bg-conservative-green hover:bg-conservative-green/90 text-white" onClick={() => handleNav('contact')}>Støt min kampagne</Button>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-conservative-green"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+          <button className="md:hidden text-conservative-green" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -71,36 +56,18 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden mt-4 py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              <button 
-                onClick={() => scrollToSection('hero')}
-                className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors"
-              >
-                Hjem
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors"
-              >
-                Om mig
-              </button>
-              <button 
-                onClick={() => scrollToSection('podcast')}
-                className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors"
-              >
-                Podcasts
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors"
-              >
-                Kontakt
-              </button>
-              <Button 
-                className="bg-conservative-green hover:bg-conservative-green/90 text-white w-full"
-                onClick={() => scrollToSection('contact')}
-              >
-                Støt min kampagne
-              </Button>
+
+              <button onClick={() => handleNav('hero')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Hjem</button>
+
+              <button onClick={() => handleNav('about')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Om mig</button>
+
+              <button onClick={() => navigate('/indblik')} className="text-left text-conservative-green hover:text-white transition-colors">Karriere-tidslinje</button>
+
+              <button onClick={() => handleNav('podcast')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Podcasts</button>
+
+              <button onClick={() => handleNav('contact')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Kontakt</button>
+
+              <Button className="bg-conservative-green hover:bg-conservative-green/90 text-white w-full" onClick={() => handleNav('contact')}>Støt min kampagne</Button>
             </div>
           </nav>
         )}

@@ -21,7 +21,7 @@ const ContactSection = () => {
           </h2>
           <div className="w-24 h-1 bg-conservative-green mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground">
-            Jeg er altid klar til at lytte og diskutere
+            Du er altid velkommen til at kontakte mig – jeg lytter gerne.
           </p>
         </motion.div>
 
