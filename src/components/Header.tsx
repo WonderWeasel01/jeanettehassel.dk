@@ -39,7 +39,7 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-6">
             <button onClick={() => handleNav('hero')} className="text-conservative-green hover:text-conservative-green/80 transition-colors">Hjem</button>
             <button onClick={() => handleNav('about')} className="text-conservative-green hover:text-conservative-green/80 transition-colors">Om mig</button>
-            <button onClick={() => navigate('/indblik')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Karriere-tidslinje</button>
+            <button onClick={() => navigate('/indblik')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Mine mærkesager</button>
             <button onClick={() => handleNav('podcast')} 
             className="text-conservative-green hover:text-conservative-green/80 transition-colors">Podcasts</button>
             <button onClick={() => handleNav('contact')} className="text-conservative-green hover:text-conservative-green/80 transition-colors">Kontakt</button>
@@ -61,7 +61,7 @@ const Header = () => {
 
               <button onClick={() => handleNav('about')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Om mig</button>
 
-              <button onClick={() => navigate('/indblik')} className="text-left text-conservative-green hover:text-white transition-colors">Karriere-tidslinje</button>
+              <button onClick={() => navigate('/indblik')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Mine mærkesager</button>
 
               <button onClick={() => handleNav('podcast')} className="text-left text-conservative-green hover:text-conservative-green/80 transition-colors">Podcasts</button>
 
