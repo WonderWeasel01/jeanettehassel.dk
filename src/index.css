@@ -112,4 +112,8 @@
     height: 100%;
     overflow-x: hidden; /* Prevent horizontal overflow */
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }

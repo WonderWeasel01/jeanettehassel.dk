@@ -3,8 +3,23 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDown, ChevronDown } from "lucide-react"
 import JeanetteHassel from "../assets/JeanetteBG.png"
+import { useNavigate, useLocation } from 'react-router-dom'
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Navigér til sektion med smooth scroll
+  const handleNav = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate(`/#${sectionId}`);
+    } else {
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -18,7 +33,6 @@ const HeroSection = () => {
               alt="Jeanette Hassel"
               className="w-full h-full object-cover object-right"
             />
-   
           </div>
 
           {/* Content */}
@@ -49,10 +63,10 @@ const HeroSection = () => {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="flex gap-4"
               >
-                <Button size="lg" className="text-lg bg-white text-[#00583C] hover:bg-[#00583C] hover:text-white px-8 py-4">
+                <Button size="lg" className="text-lg bg-white text-[#00583C] hover:bg-[#00583C] hover:text-white px-8 py-4" onClick={() => handleNav('about')}>
                   Lær mig at kende
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-2 border-white text-[#00583C hover:bg-white hover:text-[#00583C]">
+                <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-2 border-white text-white hover:bg-[#00583C] hover:border-[#00583C] hover:text-white" onClick={() => handleNav('contact')}>
                   Kontakt mig
                 </Button>
               </motion.div>
@@ -129,7 +143,8 @@ const HeroSection = () => {
               >
                 <Button
                   size="lg"
-                  className="bg-white text-[#00583C] hover:bg-[#9ED196] hover:text-[#00583C] px-8 py-4 text-lg font-semibold rounded-xl shadow-lg transition-all duration-300"
+                  className=" bg-white text-[#00583C] hover:bg-[#00583C] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg transition-all duration-300"
+                  onClick={() => handleNav('about')}
                 >
                   Lær mig at kende
                 </Button>
@@ -137,7 +152,8 @@ const HeroSection = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-[#00583C] text-white hover:bg-[#9ED196] hover:text-[#00583C] px-8 py-4 text-lg font-semibold rounded-xl bg-transparent transition-all duration-300"
+                  className="border-2 border-white text-white hover:bg-[#00583C] hover:border-[#00583C] hover:text-white px-8 py-4 text-lg font-semibold rounded-xl bg-transparent transition-all duration-300"
+                  onClick={() => handleNav('contact')}
                 >
                   Kontakt mig
                 </Button>
@@ -163,7 +179,6 @@ const HeroSection = () => {
         </motion.div>
       </section>
     </div>
-    
   )
 }
 
