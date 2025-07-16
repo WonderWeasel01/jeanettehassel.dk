@@ -7,6 +7,7 @@ import AboutSection from '../components/AboutSection';
 import ContactSection from '../components/ContactSection';
 import PodcastSection from '../components/PodcastSection';
 import SocialLinksSection from '../components/SocialLinksSection';
+import MaerkesagerSection from '../components/MaerkesagerSection';
 
 const Index = () => {
   return (
@@ -17,6 +18,9 @@ const Index = () => {
       </div>
       <div id="about">
         <AboutSection />
+      </div>
+      <div id="maerkesager">
+        <MaerkesagerSection />
       </div>
       <div id="podcast">
         <PodcastSection />

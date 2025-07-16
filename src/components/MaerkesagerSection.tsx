@@ -1,11 +1,9 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import Header from "@/components/Header"
-import Footer from "@/components/Footer"
-import { motion } from "framer-motion"
-import { Heart, Users, Building, Globe, TreePine, Star } from "lucide-react"
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Heart, Users, Building, Globe, TreePine, Star } from "lucide-react";
 
-export default function MaerkesagerPage() {
+const MaerkesagerSection = () => {
   const sections = [
     {
       title: "Børn og unge først",
@@ -63,21 +61,20 @@ export default function MaerkesagerPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4">
-        <div className="container mx-auto max-w-4xl text-center">
+    <section id="maerkesager" className="py-20 px-4 bg-gradient-to-b from-background to-conservative-green/5">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="space-y-6"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-conservative-green">
+            <h2 className="text-4xl md:text-5xl font-bold text-conservative-green">
               Mine mærkesager KV25
-            </h1>
+            </h2>
             <div className="inline-flex items-center bg-conservative-green/10 px-6 py-3 rounded-full">
               <Star className="w-5 h-5 text-conservative-green mr-2" />
               <span className="text-conservative-green font-semibold text-lg">
@@ -86,72 +83,66 @@ export default function MaerkesagerPage() {
             </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* Main Content */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="space-y-16">
-            {sections.map((section, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="overflow-hidden shadow-lg">
-                  <CardHeader className="bg-gradient-to-r from-conservative-green to-conservative-green/80 text-white">
-                    <div className="flex items-center space-x-4">
-                      <div className={`p-3 rounded-full bg-white/20`}>
-                        <section.icon className="w-6 h-6" />
+        {/* Issues Grid */}
+        <div className="space-y-12">
+          {sections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="overflow-hidden shadow-lg">
+                <CardHeader className="bg-gradient-to-r from-conservative-green to-conservative-green/80 text-white">
+                  <div className="flex items-center space-x-4">
+                    <div className="p-3 rounded-full bg-white/20">
+                      <section.icon className="w-6 h-6" />
+                    </div>
+                    <CardTitle className="text-2xl font-bold">
+                      {section.title}
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="space-y-4">
+                    {section.points.map((point, pointIndex) => (
+                      <div key={pointIndex} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-conservative-green rounded-full mt-2 flex-shrink-0"></div>
+                        <p className="text-gray-700 leading-relaxed">{point}</p>
                       </div>
-                      <CardTitle className="text-2xl font-bold">
-                        {section.title}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-8">
-                    <div className="space-y-4">
-                      {section.points.map((point, pointIndex) => (
-                        <div key={pointIndex} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-conservative-green rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-gray-700 leading-relaxed">{point}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Konservativ retning */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-20 text-center space-y-8 p-12 bg-conservative-green/5 rounded-2xl"
+        >
+          <h3 className="text-3xl md:text-4xl font-bold text-conservative-green">
+            Konservativ retning – med fokus på det nære
+          </h3>
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
+            <p>
+              Jeg kæmper for nærvær, værdighed og valgfrihed – og for en kommune, hvor børn trives, ældre respekteres, og initiativ belønnes.
+            </p>
+            <p className="font-semibold text-conservative-green">
+              Jeg tror på mennesket og hele familien før systemet, faglighed før symbolpolitik og tryghed før eksperimenter.
+            </p>
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
-      {/* Konservativ retning */}
-      <section className="py-16 px-4 bg-conservative-green/5">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center space-y-8"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-conservative-green">
-              Konservativ retning – med fokus på det nære
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-700 leading-relaxed">
-              <p>
-                Jeg kæmper for nærvær, værdighed og valgfrihed – og for en kommune, hvor børn trives, ældre respekteres, og initiativ belønnes.
-              </p>
-              <p className="font-semibold text-conservative-green">
-                Jeg tror på mennesket og hele familien før systemet, faglighed før symbolpolitik og tryghed før eksperimenter.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  )
-}
+export default MaerkesagerSection;
